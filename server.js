@@ -4,12 +4,19 @@ const PORT = 3000;
 const cors = require("cors");
 const nlp = require("compromise");
 
-app.use(cors());
 app.use(express.json());
+
+const corsOptions = {
+  origin: 'https://thepmpc10.github.io/peq-herois-grd-sorrisos-dev', // URL do seu front-end
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type'],
+};
+app.use(cors(corsOptions));
 
 // Variável global para rastrear tentativas consecutivas de mensagens não compreendidas
 let misunderstoodCount = 0;
 
+// Calls & endpoints
 app.post("/chat", (req, res) => {
     const userMessage = req.body.message.toLowerCase();
     let reply;
