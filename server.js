@@ -48,7 +48,7 @@ app.post("/chat", (req, res) => {
         misunderstoodCount = 0;
     } else if (doc.has("doar dinheiro") || doc.has("dar dinheiro") || doc.has("dinheiro") || doc.has("doação monetária") || doc.has("monetária") || doc.has("valor monetário")
      || doc.has("onde posso doar dinheiro")  || doc.has("mandar dinheiro")) {
-        reply = "PAra fazeres doações monetárias pode efetua-las para o nosso IBAN ou através do nosso GoFundMe.";
+        reply = "Para fazeres doações monetárias podes efetuá-las para o nosso IBAN ou através do nosso GoFundMe.";
         misunderstoodCount = 0;
     } else if (doc.has("iban")) {
         reply = "O nosso IBAN é: PT50 0010 0000 4534928002 47";
