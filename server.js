@@ -8,7 +8,7 @@ app.use(express.json());
 
 const corsOptions = {
   origin: function (origin, callback) {
-    if (origin && origin.startsWith("https://thepmpc10.github.io/peq-herois-grd-sorrisos-dev")) {
+    if (origin && origin.startsWith("https://thepmpc10.github.io")) {
       callback(null, true); // Permitir o acesso
     } else {
       callback(new Error("Not allowed by CORS")); // Bloquear se não for permitido
