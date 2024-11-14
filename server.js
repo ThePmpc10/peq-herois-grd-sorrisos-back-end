@@ -18,6 +18,8 @@ const corsOptions = {
   allowedHeaders: ['Content-Type'],
 };
 
+app.use(cors(corsOptions));
+
 // Variável global para rastrear tentativas consecutivas de mensagens não compreendidas
 let misunderstoodCount = 0;
 
