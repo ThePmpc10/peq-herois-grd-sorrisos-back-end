@@ -7,11 +7,16 @@ const nlp = require("compromise");
 app.use(express.json());
 
 const corsOptions = {
-  origin: 'https://thepmpc10.github.io/peq-herois-grd-sorrisos-dev', // URL do seu front-end
+  origin: function (origin, callback) {
+    if (origin && origin.startsWith("https://thepmpc10.github.io/peq-herois-grd-sorrisos-dev")) {
+      callback(null, true); // Permitir o acesso
+    } else {
+      callback(new Error("Not allowed by CORS")); // Bloquear se não for permitido
+    }
+  },
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type'],
 };
-app.use(cors(corsOptions));
 
 // Variável global para rastrear tentativas consecutivas de mensagens não compreendidas
 let misunderstoodCount = 0;
