@@ -6,9 +6,11 @@ const nlp = require("compromise");
 
 app.use(express.json());
 
+
+//Option Test in dev - https://thepmpc10.github.io
 const corsOptions = {
   origin: function (origin, callback) {
-    if (origin && origin.startsWith("https://thepmpc10.github.io")) {
+    if (origin && origin.startsWith("https://pequenosheroisgrandessorrisos.org")) {
       callback(null, true); // Permitir o acesso
     } else {
       callback(new Error("Not allowed by CORS")); // Bloquear se não for permitido
@@ -67,6 +69,12 @@ app.post("/chat", (req, res) => {
         misunderstoodCount = 0;
     } else if (doc.has("brinquedos novos") || doc.has("brinquedos velhos") || doc.has("brinquedos usados") || doc.has("nao embalados") || doc.has("brinquedos pouco uso") || doc.has("brinquedo novo") || doc.has("brinquedo velho")) {
         reply = "Devido à situação clínica das crianças apenas aceitamos doações de brinquedos novos e embalados, pedimos desculpa pelo transtorno.";
+        misunderstoodCount = 0;
+    } else if (doc.has("como posso doar") || doc.has("como posso doar?") || doc.has("quero doar") || doc.has("pretendo doar")) {
+        reply = "Para fazeres doações monetárias podes efetuá-las para o nosso IBAN ou através do nosso GoFundMe.";
+        misunderstoodCount = 0;
+    } else if (doc.has("obrigado") || doc.has("obg") || doc.has("obrigada") || doc.has("thanks")) {
+        reply = "Obrigado nós. Estamos ao teu dispor.";
         misunderstoodCount = 0;
     } else {
         misunderstoodCount += 1;
