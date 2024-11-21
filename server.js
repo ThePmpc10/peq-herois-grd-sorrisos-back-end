@@ -53,7 +53,7 @@ app.post("/chat", (req, res) => {
         reply = "Para fazeres doações monetárias podes efetuá-las para o nosso IBAN ou através do nosso GoFundMe.";
         misunderstoodCount = 0;
     } else if (doc.has("iban")) {
-        reply = "O nosso IBAN é: PT50 0010 0000 4534928002 47";
+        reply = "O nosso IBAN é: PT50 0010 0000 45349280002 47";
         misunderstoodCount = 0;
     } else if (doc.has("ola") || doc.has("bom dia") || doc.has("boa tarde") || doc.has("boa noite")) {
             reply = "Olá!";
